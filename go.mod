@@ -1,4 +1,4 @@
-module github.com/delphix/dct-sdk-go
+module github.com/kurian87/dct-go-sdk
 
 go 1.17
 
