@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]Environment**](Environment.md) |  | [optional] 
 **Errors** | Pointer to [**[]Error**](Error.md) | Sadly, sometimes requests to the API are not successful. Failures can occur for a wide range of reasons. The Errors object contains information about full or partial failures which might have occurred during the request. | [optional] 
+**ResponseMetadata** | Pointer to [**PaginatedResponseMetadata**](PaginatedResponseMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetErrors sets Errors field to given value.
 `func (o *ListEnvironmentsResponse) HasErrors() bool`
 
 HasErrors returns a boolean if a field has been set.
+
+### GetResponseMetadata
+
+`func (o *ListEnvironmentsResponse) GetResponseMetadata() PaginatedResponseMetadata`
+
+GetResponseMetadata returns the ResponseMetadata field if non-nil, zero value otherwise.
+
+### GetResponseMetadataOk
+
+`func (o *ListEnvironmentsResponse) GetResponseMetadataOk() (*PaginatedResponseMetadata, bool)`
+
+GetResponseMetadataOk returns a tuple with the ResponseMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResponseMetadata
+
+`func (o *ListEnvironmentsResponse) SetResponseMetadata(v PaginatedResponseMetadata)`
+
+SetResponseMetadata sets ResponseMetadata field to given value.
+
+### HasResponseMetadata
+
+`func (o *ListEnvironmentsResponse) HasResponseMetadata() bool`
+
+HasResponseMetadata returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

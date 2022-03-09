@@ -289,7 +289,7 @@ import (
 
 func main() {
     id := int64(789) // int64 | Numeric ID of the Api client
-    apiClient := *openapiclient.NewApiClient(false) // ApiClient | 
+    apiClient := *openapiclient.NewApiClient() // ApiClient | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

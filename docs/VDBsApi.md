@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ## GetVdbs
 
-> ListVDBsResponse GetVdbs(ctx).Execute()
+> ListVDBsResponse GetVdbs(ctx).Limit(limit).Cursor(cursor).Execute()
 
 List all vdbs.
 
@@ -317,10 +317,12 @@ import (
 )
 
 func main() {
+    limit := int32(50) // int32 | Maximum number of objects to return per query. The value must be between 1 and 1000. Default is 100. (optional) (default to 100)
+    cursor := "RXlhbCBpcyBncmVhdAo=" // string | Cursor to fetch the next or previous page of results. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.VDBsApi.GetVdbs(context.Background()).Execute()
+    resp, r, err := apiClient.VDBsApi.GetVdbs(context.Background()).Limit(limit).Cursor(cursor).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `VDBsApi.GetVdbs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -332,12 +334,17 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetVdbsRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int32** | Maximum number of objects to return per query. The value must be between 1 and 1000. Default is 100. | [default to 100]
+ **cursor** | **string** | Cursor to fetch the next or previous page of results. | 
 
 ### Return type
 

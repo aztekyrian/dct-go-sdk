@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**DeleteBookmark**](BookmarksApi.md#DeleteBookmark) | **Delete** /bookmarks/{bookmarkId} | Delete a bookmark.
 [**GetBookmarkById**](BookmarksApi.md#GetBookmarkById) | **Get** /bookmarks/{bookmarkId} | Get a bookmark by ID.
 [**GetBookmarks**](BookmarksApi.md#GetBookmarks) | **Get** /bookmarks | List all bookmarks.
+[**GetVdbGroupsByBookmark**](BookmarksApi.md#GetVdbGroupsByBookmark) | **Get** /bookmarks/{bookmarkId}/vdb-groups | List VDB Groups compatible with this bookmark.
 [**RestoreBookmark**](BookmarksApi.md#RestoreBookmark) | **Post** /bookmarks/{bookmarkId}/restore | Restore VDBs to the bookmark creation time.
 
 
@@ -254,6 +255,74 @@ Other parameters are passed through a pointer to a apiGetBookmarksRequest struct
 ### Return type
 
 [**ListBookmarksResponse**](ListBookmarksResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetVdbGroupsByBookmark
+
+> ListVDBGroupsByBookmarkResponse GetVdbGroupsByBookmark(ctx, bookmarkId).Execute()
+
+List VDB Groups compatible with this bookmark.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    bookmarkId := "bookmarkId_example" // string | The ID of the bookmark.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.BookmarksApi.GetVdbGroupsByBookmark(context.Background(), bookmarkId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `BookmarksApi.GetVdbGroupsByBookmark``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVdbGroupsByBookmark`: ListVDBGroupsByBookmarkResponse
+    fmt.Fprintf(os.Stdout, "Response from `BookmarksApi.GetVdbGroupsByBookmark`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**bookmarkId** | **string** | The ID of the bookmark. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVdbGroupsByBookmarkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ListVDBGroupsByBookmarkResponse**](ListVDBGroupsByBookmarkResponse.md)
 
 ### Authorization
 
